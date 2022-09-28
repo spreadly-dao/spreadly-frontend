@@ -1,6 +1,8 @@
 import { AppBar, Box, useScrollTrigger } from "@mui/material";
 import * as React from "react";
 import AbstractButton from "../utilities/Button";
+import Link from "next/link";
+import Resources from "./Resources";
 
 export const navBarHeight = "3.5rem";
 
@@ -9,6 +11,16 @@ const TopNav: React.FC = () => {
     disableHysteresis: true,
     threshold: 0,
   });
+  const MENU_LIST = [
+    { text: "Home", path: "/" },
+    { text: "Ido", path: "/ido" },
+    { text: "About", path: "/about" },
+    { text: "Education", path: "/education" },
+    { text: "Affiliates", path: "/affiliates" },
+    { text: "Blog", path: "/blog" }
+  ];
+
+
   return (
     <AppBar
       position="fixed"
@@ -40,6 +52,16 @@ const TopNav: React.FC = () => {
         >
           <img src="/logo.png" />
         </Box>
+        {MENU_LIST.map((menu, index) => {
+             return (
+              <Box sx={{ml: "2rem"}}>
+                <Link href={menu.path}>
+                  <Box key={index} style={{ textTransform: "uppercase"}}>{menu.text}</Box>
+                </Link>
+              </Box>
+            );
+             })}
+        <Resources/>
         <Box sx={{ ml: "auto" }}>
           <AbstractButton>Coming Soon</AbstractButton>
         </Box>

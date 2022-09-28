@@ -1,8 +1,16 @@
 import { Box } from "@mui/material";
-import type { NextPage } from "next";
+import { Header } from "../components/utilities/Headers";
+import { IComponent } from '../components/utilities/Interfaces';
 
-const Ido: NextPage = () => {
-  return <Box sx={{ height: "500vh" }}>Ido Here...</Box>;
-};
+const Ido: React.FC<IComponent> = (props) => {
+  return <Box sx={{width: '70%', display: 'flex', alignItems: 'center'}}>
+      <Header
+          title="All about the IDO"
+          subtitle='Provide a platform for your users via Spreadly and earn rewards for the revenue you generate.'
+          
+      />
+      
+  </Box>
+}
 
 export default Ido;
