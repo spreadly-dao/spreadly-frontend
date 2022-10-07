@@ -7,7 +7,7 @@ const Ido: React.FC<IComponent> = (props) => {
       <Header
           title="All about the IDO"
           subtitle='Provide a platform for your users via Spreadly and earn rewards for the revenue you generate.'
-          
+          button="Join the IDO"
       />
       
   </Box>
