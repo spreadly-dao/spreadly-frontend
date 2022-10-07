@@ -15,25 +15,39 @@ return (
     </Box>
   </Grid>
   <Grid item md={1.75}>
-    <Box>First column</Box>
+    <Box mb={1}>First column</Box>
     <Box>first page</Box>
-
+    <Box>second page</Box>
+    <Box>third page</Box>
+    <Box>fourth page</Box>
   </Grid>
   <Grid item md={1.75}>
-    <Box>Second column</Box>
+    <Box mb={1}>Second column</Box>
+    <Box>first page</Box>
+    <Box>second page</Box>
+    <Box>third page</Box>
+    <Box>fourth page</Box>
   </Grid>
   <Grid item md={1.75}>
-    <Box>Third column</Box>
+    <Box mb={1}>Third column</Box>
+    <Box>first page</Box>
+    <Box>second page</Box>
+    <Box>third page</Box>
+    <Box>fourth page</Box>
   </Grid>
   <Grid item md={1.75}>
-    <Box>Fourth column</Box>
+    <Box mb={1}>Fourth column</Box>
+    <Box>first page</Box>
+    <Box>second page</Box>
+    <Box>third page</Box>
+    <Box>fourth page</Box>
   </Grid>
   <Grid item md={3.25}>
     <Box>
-    <IconButton aria-label="twitter" size="small">
+    <IconButton aria-label="twitter" size="large" color="primary">
       <TwitterIcon fontSize="inherit" />
     </IconButton>
-    <IconButton aria-label="github" size="small">
+    <IconButton aria-label="github" size="large" color="primary">
       <GitHubIcon fontSize="inherit" />
     </IconButton>
     </Box>
