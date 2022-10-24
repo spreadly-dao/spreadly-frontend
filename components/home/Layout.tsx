@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import * as React from "react";
 import { useTheme } from "../../lib/ThemeContext";
 import { IComponent } from "../utilities/Interfaces";
-import TopNav, { navBarHeight } from "./TopNav";
+import TopNav, { navBarHeight } from "../nav/TopNav";
 
 const Layout: React.FC<IComponent> = (props) => {
   return (

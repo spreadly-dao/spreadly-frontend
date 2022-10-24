@@ -1,10 +1,18 @@
-import { AppBar, Box, useScrollTrigger } from "@mui/material";
+import { AppBar, Box, Typography, useScrollTrigger } from "@mui/material";
 import * as React from "react";
 import AbstractButton from "../utilities/Button";
 import Link from "next/link";
-import Resources from "./Resources";
+import Resources from "../home/Resources";
+import ThemeToggle from "./ThemeToggle";
+import { useRouter } from "next/router";
+import path from "path";
 
 export const navBarHeight = "3.5rem";
+
+const isActiveRoute = (currentPath: string, value: string): boolean => {
+  console.log(currentPath, value)
+  return value === '/' ? currentPath === value : currentPath.includes(value)
+} 
 
 const TopNav: React.FC = () => {
   const trigger = useScrollTrigger({
@@ -19,6 +27,9 @@ const TopNav: React.FC = () => {
     { text: "Affiliates", path: "/affiliates" },
     { text: "Blog", path: "/blog" }
   ];
+
+  const router = useRouter();
+  
 
 
   return (
@@ -56,13 +67,14 @@ const TopNav: React.FC = () => {
              return (
               <Box sx={{ml: "2rem"}}>
                 <Link href={menu.path}>
-                  <Box key={index} style={{ textTransform: "uppercase"}}>{menu.text}</Box>
+                  <Typography key={index} sx={{ textTransform: "uppercase", cursor: 'pointer', color: isActiveRoute(router.asPath, menu.path) ? 'primary.main' : 'text.primary', textDecoration: isActiveRoute(router.asPath, menu.path) ? 'underline' : 'none'}}>{menu.text}</Typography>
                 </Link>
               </Box>
             );
              })}
         <Resources/>
-        <Box sx={{ ml: "auto" }}>
+        <Box sx={{ ml: "auto", display: 'flex' }}>
+          <ThemeToggle/>
           <AbstractButton>Coming Soon</AbstractButton>
         </Box>
       </Box>

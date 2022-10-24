@@ -14,14 +14,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   const variants = {
-    hidden: { opacity: 0, x: 0, y: -200 },
+    hidden: { opacity: 0, x: -200, y: 0 },
     enter: { opacity: 1, x: 0, y: 0 },
-    exit: { opacity: 0, x: 0, y: -100 },
+    exit: { opacity: 0, x: 200, y: 0 },
   };
 
   return (
     <CustomThemeProvider>
       <CssBaseline />
+      <Layout>
       <AnimatePresence exitBeforeEnter>
         <motion.main
           variants={variants}
@@ -32,15 +33,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           className=""
           key={router.route}
         >
-          {isHomeComponent(Component) ? (
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          ) : (
-            <>Dapp Here...</>
-          )}
+            <Component {...pageProps} />
+
         </motion.main>
       </AnimatePresence>
+      </Layout>
     </CustomThemeProvider>
   );
 }

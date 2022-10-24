@@ -17,7 +17,7 @@ export const mainTheme = createTheme({
   typography: {
     // change me...
     fontFamily:
-      '"IBM Plex Mono" "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif',
+      'IBM Plex Mono, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif',
     body2: {
       fontSize: "1rem",
       lineHeight: 1.5,
@@ -119,10 +119,11 @@ export const LightTheme = createTheme({
     },
     text: {
       primary: 'rgba(0, 0, 0, 0.87)',
-      secondary: 'rgba(0, 0, 0, 0.6)'
+      secondary: 'rgba(255, 255, 255, 0.7)'
     },
     primary: {
-      main: "#1CB29A",
+      main: "#17F3D0",
+      light: '#74E3D1'
     },
     // Used by `getContrastText()` to maximize the contrast between
     // the background and the text.
