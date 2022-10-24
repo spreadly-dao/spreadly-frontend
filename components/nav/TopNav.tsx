@@ -30,8 +30,6 @@ const TopNav: React.FC = () => {
 
   const router = useRouter();
   
-
-
   return (
     <AppBar
       position="fixed"
@@ -42,8 +40,7 @@ const TopNav: React.FC = () => {
         height: navBarHeight,
         backdropFilter: `${trigger ? "blur(25px)" : ""}`,
         width: "100%",
-        display: "flex",
-        alignItems: "center",
+        display: {sm: 'none', md:"flex"},        alignItems: "center",
         justifyContent: "center",
         background: `${
           trigger
@@ -52,7 +49,7 @@ const TopNav: React.FC = () => {
         }`,
       }}
     >
-      <Box sx={{ display: "flex", alignItems: "center", width: "70%" }}>
+      <Box sx={{ display: 'flex', alignItems: "center", width: {md: '98%', lg: "75%"} }}>
         <Box
           sx={{
             img: { width: "2rem", height: "2rem" },
