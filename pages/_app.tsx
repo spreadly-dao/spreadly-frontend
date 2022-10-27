@@ -23,20 +23,19 @@ function MyApp({ Component, pageProps }: AppProps) {
     <CustomThemeProvider>
       <CssBaseline />
       <Layout>
-      <AnimatePresence exitBeforeEnter>
-        <motion.main
-          variants={variants}
-          initial="hidden"
-          animate="enter"
-          exit="exit"
-          transition={{ type: "linear" }}
-          className=""
-          key={router.route}
-        >
+        <AnimatePresence exitBeforeEnter>
+          <motion.main
+            variants={variants}
+            initial="hidden"
+            animate="enter"
+            exit="exit"
+            transition={{ type: "linear" }}
+            className=""
+            key={router.route}
+          >
             <Component {...pageProps} />
-
-        </motion.main>
-      </AnimatePresence>
+          </motion.main>
+        </AnimatePresence>
       </Layout>
     </CustomThemeProvider>
   );

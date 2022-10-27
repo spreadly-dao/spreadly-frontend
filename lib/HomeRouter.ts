@@ -10,8 +10,17 @@ import Whitepaper from "../pages/whitepaper";
 import Yellowpaper from "../pages/yellowpaper";
 import FAQ from "../pages/faq";
 
-
 export const isHomeComponent = (component: NextComponentType): boolean => {
-  return component === Home || component === About || component === Affiliates || component === Ido || component === Education || component === Blog || component === TermsAndConditions
-  || component === Whitepaper || component === Yellowpaper || component === FAQ;
+  return (
+    component === Home ||
+    component === About ||
+    component === Affiliates ||
+    component === Ido ||
+    component === Education ||
+    component === Blog ||
+    component === TermsAndConditions ||
+    component === Whitepaper ||
+    component === Yellowpaper ||
+    component === FAQ
+  );
 };

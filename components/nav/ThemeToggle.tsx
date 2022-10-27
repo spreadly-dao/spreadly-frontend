@@ -7,15 +7,27 @@ import { useTheme } from "@lib/ThemeContext";
 import { DarkTheme, LightTheme } from "@styles/theme";
 
 const ThemeToggle: React.FC = () => {
-  const {theme, setTheme} = useTheme();
+  const { theme, setTheme } = useTheme();
   const [animate, setAnimate] = React.useState<boolean>(false);
   useDidMountEffect(() => {
     setAnimate(true);
   }, [theme]);
-  const backgroundStyle = {width: "50%", display: 'flex', alignItems: "center", justifyContent: 'center'}
+  const backgroundStyle = {
+    width: "50%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  };
   return (
     <>
-      <Box sx={{ position: "relative", height: "2rem", width: '4rem', mr: '.5rem' }}>
+      <Box
+        sx={{
+          position: "relative",
+          height: "2rem",
+          width: "4rem",
+          mr: ".5rem",
+        }}
+      >
         <Box
           sx={{
             position: "absolute",
@@ -34,22 +46,14 @@ const ThemeToggle: React.FC = () => {
             cursor: "pointer",
           }}
         >
-          <Box
-            sx={backgroundStyle}
-            onClick={() => setTheme(LightTheme)}
-          >
+          <Box sx={backgroundStyle} onClick={() => setTheme(LightTheme)}>
             <WbSunnyIcon
-                sx={{ fontSize: "1rem" }}
-                className={animate ? "theme-icon" : ""}
-              />
+              sx={{ fontSize: "1rem" }}
+              className={animate ? "theme-icon" : ""}
+            />
           </Box>
-          <Box
-            sx={backgroundStyle}
-            onClick={() => setTheme(DarkTheme)}
-          >
-            <Brightness2Icon
-                sx={{ fontSize: "1rem" }}
-              />
+          <Box sx={backgroundStyle} onClick={() => setTheme(DarkTheme)}>
+            <Brightness2Icon sx={{ fontSize: "1rem" }} />
           </Box>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>

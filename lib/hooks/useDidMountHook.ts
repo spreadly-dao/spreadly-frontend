@@ -9,4 +9,4 @@ const useDidMountEffect = (func: Function, deps: any[]) => {
   }, deps);
 };
 
-export default useDidMountEffect
+export default useDidMountEffect;

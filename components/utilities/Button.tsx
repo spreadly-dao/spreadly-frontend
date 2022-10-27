@@ -12,7 +12,7 @@ const AbstractButton: React.FC<IAbstractButton> = (props) => {
   const borderRadius = "1rem";
   return (
     <Box
-      sx={{ backgroundColor: "white", pb: ".1rem", pr: ".12rem", borderRadius}}
+      sx={{ backgroundColor: "white", pb: ".1rem", pr: ".12rem", borderRadius }}
     >
       <Box
         sx={{

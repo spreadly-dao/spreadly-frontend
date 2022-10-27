@@ -5,14 +5,13 @@ import Link from "next/link";
 import Resources from "../home/Resources";
 import ThemeToggle from "./ThemeToggle";
 import { useRouter } from "next/router";
-import path from "path";
 
 export const navBarHeight = "3.5rem";
 
 const isActiveRoute = (currentPath: string, value: string): boolean => {
-  console.log(currentPath, value)
-  return value === '/' ? currentPath === value : currentPath.includes(value)
-} 
+  console.log(currentPath, value);
+  return value === "/" ? currentPath === value : currentPath.includes(value);
+};
 
 const TopNav: React.FC = () => {
   const trigger = useScrollTrigger({
@@ -25,11 +24,11 @@ const TopNav: React.FC = () => {
     { text: "About", path: "/about" },
     { text: "Education", path: "/education" },
     { text: "Affiliates", path: "/affiliates" },
-    { text: "Blog", path: "/blog" }
+    { text: "Blog", path: "/blog" },
   ];
 
   const router = useRouter();
-  
+
   return (
     <AppBar
       position="fixed"
@@ -40,7 +39,8 @@ const TopNav: React.FC = () => {
         height: navBarHeight,
         backdropFilter: `${trigger ? "blur(25px)" : ""}`,
         width: "100%",
-        display: {sm: 'none', md:"flex"},        alignItems: "center",
+        display: { sm: "none", md: "flex" },
+        alignItems: "center",
         justifyContent: "center",
         background: `${
           trigger
@@ -49,7 +49,13 @@ const TopNav: React.FC = () => {
         }`,
       }}
     >
-      <Box sx={{ display: 'flex', alignItems: "center", width: {md: '98%', lg: "75%"} }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          width: { md: "98%", lg: "75%", xl: "1500px" },
+        }}
+      >
         <Box
           sx={{
             img: { width: "2rem", height: "2rem" },
@@ -61,17 +67,31 @@ const TopNav: React.FC = () => {
           <img src="/logo.png" />
         </Box>
         {MENU_LIST.map((menu, index) => {
-             return (
-              <Box sx={{ml: "2rem"}}>
-                <Link href={menu.path}>
-                  <Typography key={index} sx={{ textTransform: "uppercase", cursor: 'pointer', color: isActiveRoute(router.asPath, menu.path) ? 'primary.main' : 'text.primary', textDecoration: isActiveRoute(router.asPath, menu.path) ? 'underline' : 'none'}}>{menu.text}</Typography>
-                </Link>
-              </Box>
-            );
-             })}
-        <Resources/>
-        <Box sx={{ ml: "auto", display: 'flex' }}>
-          <ThemeToggle/>
+          return (
+            <Box sx={{ ml: "2rem" }} key={`menu-item-${index}`}>
+              <Link href={menu.path}>
+                <Typography
+                  key={index}
+                  sx={{
+                    textTransform: "uppercase",
+                    cursor: "pointer",
+                    color: isActiveRoute(router.asPath, menu.path)
+                      ? "primary.main"
+                      : "text.primary",
+                    textDecoration: isActiveRoute(router.asPath, menu.path)
+                      ? "underline"
+                      : "none",
+                  }}
+                >
+                  {menu.text}
+                </Typography>
+              </Link>
+            </Box>
+          );
+        })}
+        <Resources />
+        <Box sx={{ ml: "auto", display: "flex" }}>
+          <ThemeToggle />
           <AbstractButton>Coming Soon</AbstractButton>
         </Box>
       </Box>
