@@ -1,6 +1,7 @@
+import Button from "@components/utilities/Button";
 import { HighlightedHeader } from "@components/utilities/Headers";
-import { SouthEast } from "@mui/icons-material";
-import { Box } from "@mui/material";
+import { SouthEast, NorthEast } from "@mui/icons-material";
+import { Box, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Link from "next/link";
 
@@ -17,8 +18,13 @@ const Home: NextPage = () => {
           />
         </Box>
       </Box>
-      Index Here...
-      <Link href={"/ido"}>Ido Link Here..</Link>
+      <Box>
+        <Typography>Provide a platform for your users via Spreadly and earn rewards for the revenue you generate.</Typography>
+      </Box>
+      <Box sx={{ display: "flex"}}>
+        <Button endIcon={<NorthEast/>} variant={"outlined"}>Read More</Button>
+        <Button endIcon={<NorthEast/>}>Access IDO</Button>
+      </Box>
       <Box sx={{ backgroundColor: "primary.main", color: "text.primary" }}>
         Primary Here
       </Box>
