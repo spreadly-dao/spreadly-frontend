@@ -6,6 +6,9 @@ interface IAbstractButton extends IComponent {
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   onClick?: () => void;
+  color?: string;
+  mr?: number;
+  variant?: string;
 }
 
 const AbstractButton: React.FC<IAbstractButton> = (props) => {
@@ -21,13 +24,14 @@ const AbstractButton: React.FC<IAbstractButton> = (props) => {
           pr: ".15rem",
           mt: "-.1rem",
           borderRadius,
+          mr: "1rem"
         }}
       >
         <Button
           size="small"
-          variant="contained"
+          variant={props.variant}
           color="primary"
-          sx={{ borderRadius, mt: "-.25rem", ml: "-.2rem", fontWeight: 700 }}
+          sx={{ borderRadius, mt: "-.25rem", ml: "-.2rem", fontWeight: 700}}
         >
           {props.children}
         </Button>
@@ -35,5 +39,10 @@ const AbstractButton: React.FC<IAbstractButton> = (props) => {
     </Box>
   );
 };
+
+AbstractButton.defaultProps = {
+  color: "primary",
+  variant: "contained"
+}
 
 export default AbstractButton;
