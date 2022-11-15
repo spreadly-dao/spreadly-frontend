@@ -51,3 +51,36 @@ export const HighlightedHeader: React.FC<IHighlightedHeader> = (props) => {
     </>
   );
 };
+
+interface IHighlightedNextHeader {
+  before: string;
+  highlighted: string;
+  after?: string;
+  subtitle?: string;
+  button?: string;
+}
+
+export const HighlightedNextHeader: React.FC<IHighlightedNextHeader> = (props) => {
+  const { theme } = useTheme();
+  return (
+    <>
+      <Box sx={{ display: "flex" }}>
+        <Typography variant="h1" sx={{ fontFamily: "IBM Plex Mono" }}>
+          {props.before + " "}{" "}
+          <Box
+            sx={{
+              display: "flex",
+              backgroundColor: "primary.main",
+              color: theme === DarkTheme ? "background.default" : "black",
+              p: ".35rem",
+            }}
+          >
+            {props.highlighted}
+          </Box>{" "}
+        </Typography>
+      </Box>
+      {props.subtitle && <h5>{props.subtitle}</h5>}
+      {props.button && <AbstractButton>{props.button}</AbstractButton>}
+    </>
+  );
+};
