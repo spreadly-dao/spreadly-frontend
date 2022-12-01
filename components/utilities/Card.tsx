@@ -1,8 +1,8 @@
-import { Box, Button, Paper, Card, CardActions, CardContent, Typography } from "@mui/material";
+import { Box, Card, Paper, Card, CardActions, CardContent, Typography } from "@mui/material";
 import * as React from "react";
 import { IComponent } from "./Interfaces";
 
-interface IAbstractButton extends IComponent {
+interface IAbstractCard extends IComponent {
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   onClick?: () => void;
@@ -11,7 +11,7 @@ interface IAbstractButton extends IComponent {
   variant?: string;
 }
 
-const AbstractButton: React.FC<IAbstractButton> = (props) => {
+const AbstractCard: React.FC<IAbstractCard> = (props) => {
   const borderRadius = "1rem";
   return (
    
@@ -41,22 +41,22 @@ const AbstractButton: React.FC<IAbstractButton> = (props) => {
           </Typography>
       </CardContent>
         <CardActions>
-          <Button
+          <Card
             size="large"
             variant={props.variant}
             color="secondary"
             sx={{ borderRadius, ml: "21rem" ,mt: "-52rem", mr: "-2rem", fontWeight: 700}}
           >
             {props.children}
-          </Button>
+          </Card>
         </CardActions>
       </Card>
   );
 };
 
-AbstractButton.defaultProps = {
+AbstractCard.defaultProps = {
   color: "primary",
   variant: "contained"
 }
 
-export default AbstractButton;
+export default AbstractCard;
